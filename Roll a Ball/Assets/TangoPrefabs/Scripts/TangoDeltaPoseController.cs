@@ -263,60 +263,42 @@ public class TangoDeltaPoseController : MonoBehaviour, ITangoPose
 	{
 		Vector3 myPosition = m_tangoPosition;
 
-		double currentDistance = GetDistance(myPosition);
+		double currentDistance = GetDistanceToObject ();
 
-		float radiusDiff = 1.0f;
-		//float xDiff = (float) (radiusDiff * Math.Cos (45.0));
-		//float zDiff = (float) (radiusDiff * Math.Sin (45.0));
-
-		float xDiff30 = (float)(radiusDiff * Math.Cos (30.0));
-		float xDiff60 = (float)(radiusDiff * Math.Cos (60.0));
-		float zDiff30 = (float)(radiusDiff * Math.Sin (30.0));
-		float zDiff60 = (float)(radiusDiff * Math.Sin (60.0));
+		float radiusDiff = 2.0f;
+		float xDiff = (float) (radiusDiff * Math.Cos (45.0));
+		float zDiff = (float) (radiusDiff * Math.Sin (45.0));
 
 		Vector3 north = new Vector3 (myPosition.x, myPosition.y, myPosition.z + radiusDiff);
-		Vector3 northEast = new Vector3 (myPosition.x + xDiff30, myPosition.y, myPosition.z + zDiff60);
-		Vector3 northEastEast = new Vector3 (myPosition.x + xDiff60, myPosition.y, myPosition.z + zDiff30);
+		Vector3 northEast = new Vector3 (myPosition.x + xDiff, myPosition.y, myPosition.z + zDiff);
 		Vector3 east = new Vector3 (myPosition.x + radiusDiff, myPosition.y, myPosition.z);
-		Vector3 southEastEast = new Vector3 (myPosition.x + xDiff60, myPosition.y, myPosition.z - zDiff30);
-		Vector3 southEast = new Vector3 (myPosition.x + xDiff30, myPosition.y, myPosition.z - zDiff60);
+		Vector3 southEast = new Vector3 (myPosition.x + xDiff, myPosition.y, myPosition.z - zDiff);
 		Vector3 south = new Vector3 (myPosition.x, myPosition.y, myPosition.z - radiusDiff);
-		Vector3 southWest = new Vector3 (myPosition.x - xDiff30, myPosition.y, myPosition.z - zDiff60);
-		Vector3 southWestWest = new Vector3 (myPosition.x - xDiff60, myPosition.y, myPosition.z - zDiff30);
+		Vector3 southWest = new Vector3 (myPosition.x - xDiff, myPosition.y, myPosition.z - zDiff);
 		Vector3 west = new Vector3 (myPosition.x - radiusDiff, myPosition.y, myPosition.z);
-		Vector3 northWestWest = new Vector3 (myPosition.x - xDiff60, myPosition.y, myPosition.z + zDiff30);
-		Vector3 northWest = new Vector3 (myPosition.x - xDiff30, myPosition.y, myPosition.z + zDiff60);
+		Vector3 northWest = new Vector3 (myPosition.x - xDiff, myPosition.y, myPosition.z + zDiff);
 
-		double[] distances = new double[12];
+		double[] distances = new double[8];
 
 		double distanceNorth = GetDistance (north);
 		double distanceNorthEast = GetDistance (northEast);
-		double distanceNorthEastEast = GetDistance (northEastEast);
 		double distanceEast = GetDistance (east);
-		double distanceSouthEastEast = GetDistance (southEastEast);
 		double distanceSouthEast = GetDistance (southEast);
 		double distanceSouth = GetDistance (south);
 		double distanceSouthWest = GetDistance (southWest);
-		double distanceSouthWestWest = GetDistance (southWestWest);
 		double distanceWest = GetDistance (west);
-		double distanceNorthWestWest = GetDistance (northWestWest);
 		double distanceNorthWest = GetDistance (northWest);
 		
 		distances [0] = distanceNorth;
 		distances [1] = distanceNorthEast;
-		distances [2] = distanceNorthEastEast;
-		distances [3] = distanceEast;
-		// 4 is the trouble maker...
-		distances [4] = distanceSouthEastEast;
-		distances [5] = distanceSouthEast;
-		distances [6] = distanceSouth;
-		distances [7] = distanceSouthWest;
-		distances [8] = distanceSouthWestWest;
-		distances [9] = distanceWest;
-		distances [10] = distanceNorthWestWest;
-		distances [11] = distanceNorthWest;
+		distances [2] = distanceEast;
+		distances [3] = distanceSouthEast;
+		distances [4] = distanceSouth;
+		distances [5] = distanceSouthWest;
+		distances [6] = distanceWest;
+		distances [7] = distanceNorthWest;
 
-		int indexWithMinimumDistance = 12;
+		int indexWithMinimumDistance = 8;
 		double minimumDistance = double.MaxValue;
 
 		for (int i = 0; i < distances.Length; i++) 
@@ -325,9 +307,7 @@ public class TangoDeltaPoseController : MonoBehaviour, ITangoPose
 			{
 				indexWithMinimumDistance = i;
 				minimumDistance = distances [i];
-				print("i: " + i + ", minimum distance: " + minimumDistance);
 			}
-			// For some reason this does the exact opposite at times... That's why it's messed up.
 		}
 			
 		double ourYValue = m_tangoRotation.eulerAngles.y;
@@ -344,46 +324,25 @@ public class TangoDeltaPoseController : MonoBehaviour, ITangoPose
 		{
 			case 0:
 				return 0;
-				break;
 			case 1:
-				return 30;
-				break;
+				return 45;
 			case 2:
-				return 60;
-				break;
-			case 3:
 				return 90;
-				break;
+			case 3:
+				return 135;
 			case 4:
-				return 120;
-				break;
-			case 5:
-				return 150;
-				break;
-			case 6:
 				return 180;
-				break;
-			case 7:
-				return 210;
-				break;
-			case 8:
-				return 240;
-				break;
-			case 9:
+			case 5:
+				return 225;
+			case 6:
 				return 270;
-				break;
-			case 10:
-				return 300;
-				break;
-			case 11:
-				return 330;
-				break;
+			case 7:
+				return 315;
 			default:
-				return 100000000;
-				break;
+				return 0;
 		}
 	}
-					
+		
 	public void GetClosestDirection(double OurYRotation, double GoYRotation) 
 	{
 		if (OurYRotation < GoYRotation + 15 && OurYRotation > GoYRotation - 15) {
