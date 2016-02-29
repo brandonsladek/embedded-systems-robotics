@@ -76,6 +76,7 @@
 -define:UNITY_EDITOR_OSX
 'Assets/Google-Unity/Scripts/AndroidHelper.cs'
 'Assets/Google-Unity/Scripts/AndroidLifecycle.cs'
+'Assets/Scripts/AreaLearningStartup.cs'
 'Assets/Scripts/CameraController.cs'
 'Assets/Scripts/PlayerController.cs'
 'Assets/Scripts/PoseController.cs'

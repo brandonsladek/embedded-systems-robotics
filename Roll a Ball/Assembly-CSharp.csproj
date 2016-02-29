@@ -3,8 +3,9 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>8.0.30703</ProductVersion>
+    <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
+    <RootNamespace></RootNamespace>
     <ProjectGuid>{8F0A54F0-5A0E-B6A5-A79C-E691566A2314}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -33,133 +34,135 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.XML" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="UnityEngine">
-      <HintPath>..\..\..\..\..\Applications\Unity\Unity.app\Contents\Frameworks\Managed\UnityEngine.dll</HintPath>
+      <HintPath>/Applications/Unity/Unity.app/Contents/Frameworks/Managed/UnityEngine.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor">
-      <HintPath>..\..\..\..\..\Applications\Unity\Unity.app\Contents\Frameworks\Managed\UnityEditor.dll</HintPath>
+      <HintPath>/Applications/Unity/Unity.app/Contents/Frameworks/Managed/UnityEditor.dll</HintPath>
     </Reference>
-    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Google-Unity\Scripts\AndroidHelper.cs" />
-    <Compile Include="Assets\Google-Unity\Scripts\AndroidLifecycle.cs" />
-    <Compile Include="Assets\Scripts\CameraController.cs" />
-    <Compile Include="Assets\Scripts\PlayerController.cs" />
-    <Compile Include="Assets\Scripts\Rotator.cs" />
-    <Compile Include="Assets\Scripts\TangoCameraController.cs" />
-    <Compile Include="Assets\TangoPrefabs\Scripts\ARCameraPostProcess.cs" />
-    <Compile Include="Assets\TangoPrefabs\Scripts\TangoARPoseController.cs" />
-    <Compile Include="Assets\TangoPrefabs\Scripts\TangoARScreen.cs" />
-    <Compile Include="Assets\TangoPrefabs\Scripts\TangoDeltaPoseController.cs" />
-    <Compile Include="Assets\TangoPrefabs\Scripts\TangoGestureCamera.cs" />
-    <Compile Include="Assets\TangoPrefabs\Scripts\TangoMultiCamera.cs" />
-    <Compile Include="Assets\TangoPrefabs\Scripts\TangoPointCloud.cs" />
-    <Compile Include="Assets\TangoPrefabs\Scripts\TangoPoseController.cs" />
-    <Compile Include="Assets\TangoSDK\Core\Scripts\Common\Common.cs" />
-    <Compile Include="Assets\TangoSDK\Core\Scripts\Common\OrientationManager.cs" />
-    <Compile Include="Assets\TangoSDK\Core\Scripts\Common\TangoAndroidHelper.cs" />
-    <Compile Include="Assets\TangoSDK\Core\Scripts\Common\TangoEnums.cs" />
-    <Compile Include="Assets\TangoSDK\Core\Scripts\Common\TangoTypes.cs" />
-    <Compile Include="Assets\TangoSDK\Core\Scripts\Interfaces\IExperimentalTangoVideoOverlay.cs" />
-    <Compile Include="Assets\TangoSDK\Core\Scripts\Interfaces\ITangoAreaDescriptionEvent.cs" />
-    <Compile Include="Assets\TangoSDK\Core\Scripts\Interfaces\ITangoCloudEvent.cs" />
-    <Compile Include="Assets\TangoSDK\Core\Scripts\Interfaces\ITangoDepth.cs" />
-    <Compile Include="Assets\TangoSDK\Core\Scripts\Interfaces\ITangoEvent.cs" />
-    <Compile Include="Assets\TangoSDK\Core\Scripts\Interfaces\ITangoEventMultithreaded.cs" />
-    <Compile Include="Assets\TangoSDK\Core\Scripts\Interfaces\ITangoLifecycle.cs" />
-    <Compile Include="Assets\TangoSDK\Core\Scripts\Interfaces\ITangoPose.cs" />
-    <Compile Include="Assets\TangoSDK\Core\Scripts\Interfaces\ITangoVideoOverlay.cs" />
-    <Compile Include="Assets\TangoSDK\Core\Scripts\Listeners\AreaDescriptionEventListener.cs" />
-    <Compile Include="Assets\TangoSDK\Core\Scripts\Listeners\DepthListener.cs" />
-    <Compile Include="Assets\TangoSDK\Core\Scripts\Listeners\PoseListener.cs" />
-    <Compile Include="Assets\TangoSDK\Core\Scripts\Listeners\TangoCloudEventListener.cs" />
-    <Compile Include="Assets\TangoSDK\Core\Scripts\Listeners\TangoEventListener.cs" />
-    <Compile Include="Assets\TangoSDK\Core\Scripts\Listeners\VideoOverlayListener.cs" />
-    <Compile Include="Assets\TangoSDK\Core\Scripts\TangoWrappers\AreaDescription.cs" />
-    <Compile Include="Assets\TangoSDK\Core\Scripts\TangoWrappers\DepthProvider.cs" />
-    <Compile Include="Assets\TangoSDK\Core\Scripts\TangoWrappers\PoseProvider.cs" />
-    <Compile Include="Assets\TangoSDK\Core\Scripts\TangoWrappers\TangoApplication.cs" />
-    <Compile Include="Assets\TangoSDK\Core\Scripts\TangoWrappers\TangoConfig.cs" />
-    <Compile Include="Assets\TangoSDK\Core\Scripts\TangoWrappers\TangoEvents.cs" />
-    <Compile Include="Assets\TangoSDK\Core\Scripts\TangoWrappers\VideoOverlayProvider.cs" />
-    <Compile Include="Assets\TangoSDK\Examples\AreaDescriptionManagement\Scripts\ADMGUIController.cs" />
-    <Compile Include="Assets\TangoSDK\Examples\AreaDescriptionManagement\Scripts\ADMLockY.cs" />
-    <Compile Include="Assets\TangoSDK\Examples\AreaDescriptionManagement\Scripts\ADMQualityCamera.cs" />
-    <Compile Include="Assets\TangoSDK\Examples\AreaDescriptionManagement\Scripts\ADMQualityManager.cs" />
-    <Compile Include="Assets\TangoSDK\Examples\AreaLearning\Scripts\AreaDescriptionPicker.cs" />
-    <Compile Include="Assets\TangoSDK\Examples\AreaLearning\Scripts\AreaLearningInGameController.cs" />
-    <Compile Include="Assets\TangoSDK\Examples\AreaLearning\Scripts\RelocalizingOverlay.cs" />
-    <Compile Include="Assets\TangoSDK\Examples\AugmentedReality\Scripts\ARGUIController.cs" />
-    <Compile Include="Assets\TangoSDK\Examples\AugmentedReality\Scripts\ARMarker.cs" />
-    <Compile Include="Assets\TangoSDK\Examples\AugmentedReality\Scripts\ARTouchEffect.cs" />
-    <Compile Include="Assets\TangoSDK\Examples\Common\Scripts\AreaDescriptionListElement.cs" />
-    <Compile Include="Assets\TangoSDK\Examples\Common\Scripts\FPSCounter.cs" />
-    <Compile Include="Assets\TangoSDK\Examples\Common\Scripts\SceneSwitcher.cs" />
-    <Compile Include="Assets\TangoSDK\Examples\ExperimentalMeshBuilder\Scripts\BallThrower.cs" />
-    <Compile Include="Assets\TangoSDK\Examples\ExperimentalMeshBuilder\Scripts\CustomPointCloudListener.cs" />
-    <Compile Include="Assets\TangoSDK\Examples\ExperimentalMeshBuilder\Scripts\DebugDrawing.cs" />
-    <Compile Include="Assets\TangoSDK\Examples\ExperimentalMeshBuilder\Scripts\DynamicMeshCube.cs" />
-    <Compile Include="Assets\TangoSDK\Examples\ExperimentalMeshBuilder\Scripts\DynamicMeshManager.cs" />
-    <Compile Include="Assets\TangoSDK\Examples\ExperimentalMeshBuilder\Scripts\MeshBuilderGUIController.cs" />
-    <Compile Include="Assets\TangoSDK\Examples\ExperimentalMeshBuilder\Scripts\Polygonizer.cs" />
-    <Compile Include="Assets\TangoSDK\Examples\ExperimentalMeshBuilder\Scripts\TopDownFollow.cs" />
-    <Compile Include="Assets\TangoSDK\Examples\ExperimentalMeshBuilder\Scripts\VolumetricHashTree.cs" />
-    <Compile Include="Assets\TangoSDK\Examples\ExperimentalMeshBuilder\Scripts\Voxel.cs" />
-    <Compile Include="Assets\TangoSDK\Examples\ExperimentalMeshBuilder\Scripts\VoxelHashTree.cs" />
-    <Compile Include="Assets\TangoSDK\Examples\ExperimentalVirtualReality\Scripts\CreateHeadsetGeometery.cs" />
-    <Compile Include="Assets\TangoSDK\Examples\ExperimentalVirtualReality\Scripts\CubeGenerator.cs" />
-    <Compile Include="Assets\TangoSDK\Examples\ExperimentalVirtualReality\Scripts\LineChart.cs" />
-    <Compile Include="Assets\TangoSDK\Examples\ExperimentalVirtualReality\Scripts\PopupManager.cs" />
-    <Compile Include="Assets\TangoSDK\Examples\ExperimentalVirtualReality\Scripts\StereoCameraManager.cs" />
-    <Compile Include="Assets\TangoSDK\Examples\ExperimentalVirtualReality\Scripts\VirtualRealityGUIController.cs" />
-    <Compile Include="Assets\TangoSDK\Examples\MotionTracking\Scripts\MotionTrackingGUIController.cs" />
-    <Compile Include="Assets\TangoSDK\Examples\PointCloud\Scripts\PointCloudFPSCounter.cs" />
-    <Compile Include="Assets\TangoSDK\Examples\PointCloud\Scripts\PointCloudGUIController.cs" />
-    <Compile Include="Assets\TangoSDK\TangoSupport\Scripts\TangoSupport.cs" />
-    <Compile Include="Assets\TangoSDK\TangoUX\Scripts\Common\AndroidHelper.cs" />
-    <Compile Include="Assets\TangoSDK\TangoUX\Scripts\Common\TangoUxEnums.cs" />
-    <Compile Include="Assets\TangoSDK\TangoUX\Scripts\Common\TangoUxTypes.cs" />
-    <Compile Include="Assets\TangoSDK\TangoUX\Scripts\Interfaces\ITangoUX.cs" />
-    <Compile Include="Assets\TangoSDK\TangoUX\Scripts\Listeners\UxExceptionEventListener.cs" />
-    <Compile Include="Assets\TangoSDK\TangoUX\Scripts\TangoUx.cs" />
-    <None Include="Assets\Plugins\Android\UnityUxHelper\AndroidManifest.xml" />
-    <None Include="Assets\Plugins\Android\google-unity-wrapper\AndroidManifest.xml" />
-    <None Include="Assets\Plugins\Android\tango-ux-support-library\res\layout-land\exception_component.xml" />
-    <None Include="Assets\Plugins\Android\tango-ux-support-library\AndroidManifest.xml" />
-    <None Include="Assets\Plugins\Android\tango-ux-support-library\res\values\configuration.xml" />
-    <None Include="Assets\TangoPrefabs\Shaders\PointCloud.shader" />
-    <None Include="Assets\Plugins\Android\UnityUxHelper\res\values-v11\styles.xml" />
-    <None Include="Assets\TangoPrefabs\Shaders\YUV2RGB.shader" />
-    <None Include="Assets\Plugins\Android\tango-ux-support-library\res\layout\layout_connection.xml" />
-    <None Include="Assets\Plugins\Android\tango-ux-support-library\res\values\colors.xml" />
-    <None Include="Assets\Plugins\Android\tango-ux-support-library\res\values-port\dimens.xml" />
-    <None Include="Assets\Plugins\Android\tango-ux-support-library\res\values-land\dimens.xml" />
-    <None Include="Assets\Plugins\Android\tango-ux-support-library\res\values\styles.xml" />
-    <None Include="Assets\TangoPrefabs\Shaders\ARPostProcess.shader" />
-    <None Include="Assets\TangoSDK\Examples\ExperimentalMeshBuilder\Shader\UnlitColor.shader" />
-    <None Include="Assets\Plugins\Android\tango-ux-support-library\res\layout-port\exception_component.xml" />
-    <None Include="Assets\Plugins\Android\tango-ux-support-library\res\values\strings.xml" />
-    <None Include="Assets\Plugins\Android\UnityUxHelper\res\values\strings.xml" />
-    <None Include="Assets\Plugins\Android\tango-cloud-lib\AndroidManifest.xml" />
-    <None Include="Assets\Plugins\Android\tango-java-lib\AndroidManifest.xml" />
-    <None Include="Assets\Plugins\Android\tango-ux-support-library\res\layout\layout_tango_ux.xml" />
-    <None Include="Assets\Plugins\Android\google-unity-wrapper\res\layout\activity_main.xml" />
-    <None Include="Assets\Plugins\Android\tango-ux-support-library\res\layout\component_hold_steady.xml" />
-    <None Include="Assets\Plugins\Android\tango-unity-helper\AndroidManifest.xml" />
-    <None Include="Assets\Plugins\Android\tango-ux-support-library\res\values\dimens.xml" />
-    <None Include="Assets\Plugins\Android\AndroidManifest.xml" />
-    <None Include="Assets\Plugins\Android\UnityUxHelper\res\layout\tango_ux_layout.xml" />
-    <None Include="Assets\Plugins\Android\UnityUxHelper\res\values-v14\styles.xml" />
-    <None Include="Assets\Plugins\Android\UnityUxHelper\res\values\styles.xml" />
-    <Reference Include="UnityEngine.Networking">
-      <HintPath>..\..\..\..\..\Applications\Unity\Unity.app\Contents\UnityExtensions\Unity\Networking\UnityEngine.Networking.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.UI">
-      <HintPath>..\..\..\..\..\Applications\Unity\Unity.app\Contents\UnityExtensions\Unity\GUISystem\UnityEngine.UI.dll</HintPath>
-    </Reference>
+     <Compile Include="Assets\Google-Unity\Scripts\AndroidHelper.cs" />
+     <Compile Include="Assets\Google-Unity\Scripts\AndroidLifecycle.cs" />
+     <Compile Include="Assets\Scripts\AreaLearningStartup.cs" />
+     <Compile Include="Assets\Scripts\CameraController.cs" />
+     <Compile Include="Assets\Scripts\PlayerController.cs" />
+     <Compile Include="Assets\Scripts\PoseController.cs" />
+     <Compile Include="Assets\Scripts\Rotator.cs" />
+     <Compile Include="Assets\Scripts\TangoCameraController.cs" />
+     <Compile Include="Assets\TangoPrefabs\Scripts\ARCameraPostProcess.cs" />
+     <Compile Include="Assets\TangoPrefabs\Scripts\TangoARPoseController.cs" />
+     <Compile Include="Assets\TangoPrefabs\Scripts\TangoARScreen.cs" />
+     <Compile Include="Assets\TangoPrefabs\Scripts\TangoDeltaPoseController.cs" />
+     <Compile Include="Assets\TangoPrefabs\Scripts\TangoGestureCamera.cs" />
+     <Compile Include="Assets\TangoPrefabs\Scripts\TangoMultiCamera.cs" />
+     <Compile Include="Assets\TangoPrefabs\Scripts\TangoPointCloud.cs" />
+     <Compile Include="Assets\TangoPrefabs\Scripts\TangoPoseController.cs" />
+     <Compile Include="Assets\TangoSDK\Core\Scripts\Common\Common.cs" />
+     <Compile Include="Assets\TangoSDK\Core\Scripts\Common\OrientationManager.cs" />
+     <Compile Include="Assets\TangoSDK\Core\Scripts\Common\TangoAndroidHelper.cs" />
+     <Compile Include="Assets\TangoSDK\Core\Scripts\Common\TangoEnums.cs" />
+     <Compile Include="Assets\TangoSDK\Core\Scripts\Common\TangoTypes.cs" />
+     <Compile Include="Assets\TangoSDK\Core\Scripts\Interfaces\IExperimentalTangoVideoOverlay.cs" />
+     <Compile Include="Assets\TangoSDK\Core\Scripts\Interfaces\ITangoAreaDescriptionEvent.cs" />
+     <Compile Include="Assets\TangoSDK\Core\Scripts\Interfaces\ITangoCloudEvent.cs" />
+     <Compile Include="Assets\TangoSDK\Core\Scripts\Interfaces\ITangoDepth.cs" />
+     <Compile Include="Assets\TangoSDK\Core\Scripts\Interfaces\ITangoEvent.cs" />
+     <Compile Include="Assets\TangoSDK\Core\Scripts\Interfaces\ITangoEventMultithreaded.cs" />
+     <Compile Include="Assets\TangoSDK\Core\Scripts\Interfaces\ITangoLifecycle.cs" />
+     <Compile Include="Assets\TangoSDK\Core\Scripts\Interfaces\ITangoPose.cs" />
+     <Compile Include="Assets\TangoSDK\Core\Scripts\Interfaces\ITangoVideoOverlay.cs" />
+     <Compile Include="Assets\TangoSDK\Core\Scripts\Listeners\AreaDescriptionEventListener.cs" />
+     <Compile Include="Assets\TangoSDK\Core\Scripts\Listeners\DepthListener.cs" />
+     <Compile Include="Assets\TangoSDK\Core\Scripts\Listeners\PoseListener.cs" />
+     <Compile Include="Assets\TangoSDK\Core\Scripts\Listeners\TangoCloudEventListener.cs" />
+     <Compile Include="Assets\TangoSDK\Core\Scripts\Listeners\TangoEventListener.cs" />
+     <Compile Include="Assets\TangoSDK\Core\Scripts\Listeners\VideoOverlayListener.cs" />
+     <Compile Include="Assets\TangoSDK\Core\Scripts\TangoWrappers\AreaDescription.cs" />
+     <Compile Include="Assets\TangoSDK\Core\Scripts\TangoWrappers\DepthProvider.cs" />
+     <Compile Include="Assets\TangoSDK\Core\Scripts\TangoWrappers\PoseProvider.cs" />
+     <Compile Include="Assets\TangoSDK\Core\Scripts\TangoWrappers\TangoApplication.cs" />
+     <Compile Include="Assets\TangoSDK\Core\Scripts\TangoWrappers\TangoConfig.cs" />
+     <Compile Include="Assets\TangoSDK\Core\Scripts\TangoWrappers\TangoEvents.cs" />
+     <Compile Include="Assets\TangoSDK\Core\Scripts\TangoWrappers\VideoOverlayProvider.cs" />
+     <Compile Include="Assets\TangoSDK\Examples\AreaDescriptionManagement\Scripts\ADMGUIController.cs" />
+     <Compile Include="Assets\TangoSDK\Examples\AreaDescriptionManagement\Scripts\ADMLockY.cs" />
+     <Compile Include="Assets\TangoSDK\Examples\AreaDescriptionManagement\Scripts\ADMQualityCamera.cs" />
+     <Compile Include="Assets\TangoSDK\Examples\AreaDescriptionManagement\Scripts\ADMQualityManager.cs" />
+     <Compile Include="Assets\TangoSDK\Examples\AreaLearning\Scripts\AreaDescriptionPicker.cs" />
+     <Compile Include="Assets\TangoSDK\Examples\AreaLearning\Scripts\AreaLearningInGameController.cs" />
+     <Compile Include="Assets\TangoSDK\Examples\AreaLearning\Scripts\RelocalizingOverlay.cs" />
+     <Compile Include="Assets\TangoSDK\Examples\AugmentedReality\Scripts\ARGUIController.cs" />
+     <Compile Include="Assets\TangoSDK\Examples\AugmentedReality\Scripts\ARMarker.cs" />
+     <Compile Include="Assets\TangoSDK\Examples\AugmentedReality\Scripts\ARTouchEffect.cs" />
+     <Compile Include="Assets\TangoSDK\Examples\Common\Scripts\AreaDescriptionListElement.cs" />
+     <Compile Include="Assets\TangoSDK\Examples\Common\Scripts\FPSCounter.cs" />
+     <Compile Include="Assets\TangoSDK\Examples\Common\Scripts\SceneSwitcher.cs" />
+     <Compile Include="Assets\TangoSDK\Examples\ExperimentalMeshBuilder\Scripts\BallThrower.cs" />
+     <Compile Include="Assets\TangoSDK\Examples\ExperimentalMeshBuilder\Scripts\CustomPointCloudListener.cs" />
+     <Compile Include="Assets\TangoSDK\Examples\ExperimentalMeshBuilder\Scripts\DebugDrawing.cs" />
+     <Compile Include="Assets\TangoSDK\Examples\ExperimentalMeshBuilder\Scripts\DynamicMeshCube.cs" />
+     <Compile Include="Assets\TangoSDK\Examples\ExperimentalMeshBuilder\Scripts\DynamicMeshManager.cs" />
+     <Compile Include="Assets\TangoSDK\Examples\ExperimentalMeshBuilder\Scripts\MeshBuilderGUIController.cs" />
+     <Compile Include="Assets\TangoSDK\Examples\ExperimentalMeshBuilder\Scripts\Polygonizer.cs" />
+     <Compile Include="Assets\TangoSDK\Examples\ExperimentalMeshBuilder\Scripts\TopDownFollow.cs" />
+     <Compile Include="Assets\TangoSDK\Examples\ExperimentalMeshBuilder\Scripts\VolumetricHashTree.cs" />
+     <Compile Include="Assets\TangoSDK\Examples\ExperimentalMeshBuilder\Scripts\Voxel.cs" />
+     <Compile Include="Assets\TangoSDK\Examples\ExperimentalMeshBuilder\Scripts\VoxelHashTree.cs" />
+     <Compile Include="Assets\TangoSDK\Examples\ExperimentalVirtualReality\Scripts\CreateHeadsetGeometery.cs" />
+     <Compile Include="Assets\TangoSDK\Examples\ExperimentalVirtualReality\Scripts\CubeGenerator.cs" />
+     <Compile Include="Assets\TangoSDK\Examples\ExperimentalVirtualReality\Scripts\LineChart.cs" />
+     <Compile Include="Assets\TangoSDK\Examples\ExperimentalVirtualReality\Scripts\PopupManager.cs" />
+     <Compile Include="Assets\TangoSDK\Examples\ExperimentalVirtualReality\Scripts\StereoCameraManager.cs" />
+     <Compile Include="Assets\TangoSDK\Examples\ExperimentalVirtualReality\Scripts\VirtualRealityGUIController.cs" />
+     <Compile Include="Assets\TangoSDK\Examples\MotionTracking\Scripts\MotionTrackingGUIController.cs" />
+     <Compile Include="Assets\TangoSDK\Examples\PointCloud\Scripts\PointCloudFPSCounter.cs" />
+     <Compile Include="Assets\TangoSDK\Examples\PointCloud\Scripts\PointCloudGUIController.cs" />
+     <Compile Include="Assets\TangoSDK\TangoSupport\Scripts\TangoSupport.cs" />
+     <Compile Include="Assets\TangoSDK\TangoUX\Scripts\Common\AndroidHelper.cs" />
+     <Compile Include="Assets\TangoSDK\TangoUX\Scripts\Common\TangoUxEnums.cs" />
+     <Compile Include="Assets\TangoSDK\TangoUX\Scripts\Common\TangoUxTypes.cs" />
+     <Compile Include="Assets\TangoSDK\TangoUX\Scripts\Interfaces\ITangoUX.cs" />
+     <Compile Include="Assets\TangoSDK\TangoUX\Scripts\Listeners\UxExceptionEventListener.cs" />
+     <Compile Include="Assets\TangoSDK\TangoUX\Scripts\TangoUx.cs" />
+     <None Include="Assets\Plugins\Android\UnityUxHelper\AndroidManifest.xml" />
+     <None Include="Assets\Plugins\Android\google-unity-wrapper\AndroidManifest.xml" />
+     <None Include="Assets\Plugins\Android\tango-ux-support-library\res\layout-land\exception_component.xml" />
+     <None Include="Assets\Plugins\Android\tango-ux-support-library\AndroidManifest.xml" />
+     <None Include="Assets\Plugins\Android\tango-ux-support-library\res\values\configuration.xml" />
+     <None Include="Assets\TangoPrefabs\Shaders\PointCloud.shader" />
+     <None Include="Assets\Plugins\Android\UnityUxHelper\res\values-v11\styles.xml" />
+     <None Include="Assets\TangoPrefabs\Shaders\YUV2RGB.shader" />
+     <None Include="Assets\Plugins\Android\tango-ux-support-library\res\layout\layout_connection.xml" />
+     <None Include="Assets\Plugins\Android\tango-ux-support-library\res\values\colors.xml" />
+     <None Include="Assets\Plugins\Android\tango-ux-support-library\res\values-port\dimens.xml" />
+     <None Include="Assets\Plugins\Android\tango-ux-support-library\res\values-land\dimens.xml" />
+     <None Include="Assets\Plugins\Android\tango-ux-support-library\res\values\styles.xml" />
+     <None Include="Assets\TangoPrefabs\Shaders\ARPostProcess.shader" />
+     <None Include="Assets\TangoSDK\Examples\ExperimentalMeshBuilder\Shader\UnlitColor.shader" />
+     <None Include="Assets\Plugins\Android\tango-ux-support-library\res\layout-port\exception_component.xml" />
+     <None Include="Assets\Plugins\Android\tango-ux-support-library\res\values\strings.xml" />
+     <None Include="Assets\Plugins\Android\UnityUxHelper\res\values\strings.xml" />
+     <None Include="Assets\Plugins\Android\tango-cloud-lib\AndroidManifest.xml" />
+     <None Include="Assets\Plugins\Android\tango-java-lib\AndroidManifest.xml" />
+     <None Include="Assets\Plugins\Android\tango-ux-support-library\res\layout\layout_tango_ux.xml" />
+     <None Include="Assets\Plugins\Android\google-unity-wrapper\res\layout\activity_main.xml" />
+     <None Include="Assets\Plugins\Android\tango-ux-support-library\res\layout\component_hold_steady.xml" />
+     <None Include="Assets\Plugins\Android\tango-unity-helper\AndroidManifest.xml" />
+     <None Include="Assets\Plugins\Android\tango-ux-support-library\res\values\dimens.xml" />
+     <None Include="Assets\Plugins\Android\AndroidManifest.xml" />
+     <None Include="Assets\Plugins\Android\UnityUxHelper\res\layout\tango_ux_layout.xml" />
+     <None Include="Assets\Plugins\Android\UnityUxHelper\res\values-v14\styles.xml" />
+     <None Include="Assets\Plugins\Android\UnityUxHelper\res\values\styles.xml" />
+ <Reference Include="UnityEngine.Networking">
+ <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.UI">
+ <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
+ </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
@@ -169,4 +172,5 @@
   <Target Name="AfterBuild">
   </Target>
   -->
+  
 </Project>
