@@ -209,14 +209,11 @@ public class TangoDeltaPoseController : MonoBehaviour, ITangoPose
         SetPose(transform.position, transform.rotation);
 
 		rb = GetComponent<Rigidbody> ();
-
-
     }
 
 	void FixedUpdate() 
 	{
 		SetPositionRotationText ();
-	
 		NavigationAlgorithmOne();
 	}
 		
@@ -237,10 +234,9 @@ public class TangoDeltaPoseController : MonoBehaviour, ITangoPose
 		Vector3 myPosition = m_tangoPosition;
 
 		double xDiff = Math.Abs(sphereObject.x - myPosition.x);
-		//double yDiff = Math.Abs(sphereObject.y - myPosition.y);
 		double zDiff = Math.Abs(sphereObject.z - myPosition.z);
 
-		double sumOfSquares = Math.Pow (xDiff, 2) + Math.Pow (zDiff, 2); //Math.Pow (yDiff, 2) + Math.Pow (zDiff, 2);
+		double sumOfSquares = Math.Pow (xDiff, 2) + Math.Pow (zDiff, 2);
 
 		double distance = Math.Sqrt (sumOfSquares);
 
@@ -254,10 +250,9 @@ public class TangoDeltaPoseController : MonoBehaviour, ITangoPose
 		Vector3 sphereObject = GameObject.Find ("Sphere").transform.position;
 
 		double xDiff = Math.Abs(sphereObject.x - location.x);
-		//double yDiff = Math.Abs(sphereObject.y - location.y);
 		double zDiff = Math.Abs(sphereObject.z - location.z);
 
-		double sumOfSquares = Math.Pow (xDiff, 2) + Math.Pow (zDiff, 2); //Math.Pow (yDiff, 2) + Math.Pow (zDiff, 2);
+		double sumOfSquares = Math.Pow (xDiff, 2) + Math.Pow (zDiff, 2);
 
 		double distance = Math.Sqrt (sumOfSquares);
 
@@ -274,36 +269,53 @@ public class TangoDeltaPoseController : MonoBehaviour, ITangoPose
 		float xDiff = (float) (radiusDiff * Math.Cos (45.0));
 		float zDiff = (float) (radiusDiff * Math.Sin (45.0));
 
-		Vector3 north = new Vector3 (myPosition.x, myPosition.y, myPosition.z + radiusDiff);
-		Vector3 northEast = new Vector3 (myPosition.x + xDiff, myPosition.y, myPosition.z + zDiff);
-		Vector3 east = new Vector3 (myPosition.x + radiusDiff, myPosition.y, myPosition.z);
-		Vector3 southEast = new Vector3 (myPosition.x + xDiff, myPosition.y, myPosition.z - zDiff);
-		Vector3 south = new Vector3 (myPosition.x, myPosition.y, myPosition.z - radiusDiff);
-		Vector3 southWest = new Vector3 (myPosition.x - xDiff, myPosition.y, myPosition.z - zDiff);
-		Vector3 west = new Vector3 (myPosition.x - radiusDiff, myPosition.y, myPosition.z);
-		Vector3 northWest = new Vector3 (myPosition.x - xDiff, myPosition.y, myPosition.z + zDiff);
+		float xDiff30 = (float)(radiusDiff * Math.Cos (30.0));
+		float xDiff60 = (float)(radiusDiff * Math.Cos (60.0));
+		float zDiff30 = (float)(radiusDiff * Math.Sin (30.0));
+		float zDiff60 = (float)(radiusDiff * Math.Sin (60.0));
 
-		double[] distances = new double[8];
+		Vector3 north = new Vector3 (myPosition.x, myPosition.y, myPosition.z + radiusDiff);
+		Vector3 northEast = new Vector3 (myPosition.x + xDiff30, myPosition.y, myPosition.z + zDiff60);
+		Vector3 northEastEast = new Vector3 (myPosition.x + xDiff60, myPosition.y, myPosition.z + zDiff30);
+		Vector3 east = new Vector3 (myPosition.x + radiusDiff, myPosition.y, myPosition.z);
+		Vector3 southEastEast = new Vector3 (myPosition.x + xDiff60, myPosition.y, myPosition.z - zDiff30);
+		Vector3 southEast = new Vector3 (myPosition.x + xDiff30, myPosition.y, myPosition.z - zDiff60);
+		Vector3 south = new Vector3 (myPosition.x, myPosition.y, myPosition.z - radiusDiff);
+		Vector3 southWest = new Vector3 (myPosition.x - xDiff30, myPosition.y, myPosition.z - zDiff60);
+		Vector3 southWestWest = new Vector3 (myPosition.x - xDiff60, myPosition.y, myPosition.z - zDiff30);
+		Vector3 west = new Vector3 (myPosition.x - radiusDiff, myPosition.y, myPosition.z);
+		Vector3 northWestWest = new Vector3 (myPosition.x - xDiff60, myPosition.y, myPosition.z + zDiff30);
+		Vector3 northWest = new Vector3 (myPosition.x - xDiff30, myPosition.y, myPosition.z + zDiff60);
+
+		double[] distances = new double[12];
 
 		double distanceNorth = GetDistance (north);
 		double distanceNorthEast = GetDistance (northEast);
+		double distanceNorthEastEast = GetDistance (northEastEast);
 		double distanceEast = GetDistance (east);
+		double distanceSouthEastEast = GetDistance (southEastEast);
 		double distanceSouthEast = GetDistance (southEast);
 		double distanceSouth = GetDistance (south);
 		double distanceSouthWest = GetDistance (southWest);
+		double distanceSouthWestWest = GetDistance (southWestWest);
 		double distanceWest = GetDistance (west);
 		double distanceNorthWest = GetDistance (northWest);
+		double distanceNorthWestWest = GetDistance (northWestWest);
 		
 		distances [0] = distanceNorth;
 		distances [1] = distanceNorthEast;
-		distances [2] = distanceEast;
-		distances [3] = distanceSouthEast;
-		distances [4] = distanceSouth;
-		distances [5] = distanceSouthWest;
-		distances [6] = distanceWest;
-		distances [7] = distanceNorthWest;
+		distances [2] = distanceNorthEastEast;
+		distances [3] = distanceEast;
+		distances [4] = distanceSouthEastEast;
+		distances [5] = distanceSouthEast;
+		distances [6] = distanceSouth;
+		distances [7] = distanceSouthWest;
+		distances [8] = distanceSouthWestWest;
+		distances [9] = distanceWest;
+		distances [10] = distanceNorthWestWest;
+		distances [11] = distanceNorthWest;
 
-		int indexWithMinimumDistance = 8;
+		int indexWithMinimumDistance = 12;
 		double minimumDistance = double.MaxValue;
 
 		for (int i = 0; i < distances.Length; i++) 
@@ -332,19 +344,27 @@ public class TangoDeltaPoseController : MonoBehaviour, ITangoPose
 			case 0:
 				return 0;
 			case 1:
-				return 45;
+				return 30;
 			case 2:
-				return 90;
+				return 60;
 			case 3:
-				return 135;
+				return 90;
 			case 4:
-				return 180;
+				return 120;
 			case 5:
-				return 225;
+				return 150;
 			case 6:
-				return 270;
+				return 180;
 			case 7:
-				return 315;
+				return 210;
+			case 8:
+				return 240;
+			case 9:
+				return 270;
+			case 10:
+				return 300;
+			case 11:
+				return 330;
 			default:
 				return 0;
 		}
