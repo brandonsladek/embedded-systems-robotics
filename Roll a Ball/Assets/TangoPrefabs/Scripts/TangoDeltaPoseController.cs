@@ -263,11 +263,11 @@ public class TangoDeltaPoseController : MonoBehaviour, ITangoPose
 	{
 		Vector3 myPosition = m_tangoPosition;
 
-		double currentDistance = GetDistanceToObject ();
+		double currentDistance = GetDistance(myPosition);
 
-		float radiusDiff = 2.0f;
-		float xDiff = (float) (radiusDiff * Math.Cos (45.0));
-		float zDiff = (float) (radiusDiff * Math.Sin (45.0));
+		float radiusDiff = 1.0f;
+		//float xDiff = (float) (radiusDiff * Math.Cos (45.0));
+		//float zDiff = (float) (radiusDiff * Math.Sin (45.0));
 
 		float xDiff30 = (float)(radiusDiff * Math.Cos (30.0));
 		float xDiff60 = (float)(radiusDiff * Math.Cos (60.0));
@@ -299,13 +299,14 @@ public class TangoDeltaPoseController : MonoBehaviour, ITangoPose
 		double distanceSouthWest = GetDistance (southWest);
 		double distanceSouthWestWest = GetDistance (southWestWest);
 		double distanceWest = GetDistance (west);
-		double distanceNorthWest = GetDistance (northWest);
 		double distanceNorthWestWest = GetDistance (northWestWest);
+		double distanceNorthWest = GetDistance (northWest);
 		
 		distances [0] = distanceNorth;
 		distances [1] = distanceNorthEast;
 		distances [2] = distanceNorthEastEast;
 		distances [3] = distanceEast;
+		// 4 is the trouble maker...
 		distances [4] = distanceSouthEastEast;
 		distances [5] = distanceSouthEast;
 		distances [6] = distanceSouth;
@@ -324,15 +325,15 @@ public class TangoDeltaPoseController : MonoBehaviour, ITangoPose
 			{
 				indexWithMinimumDistance = i;
 				minimumDistance = distances [i];
+				print("i: " + i + ", minimum distance: " + minimumDistance);
 			}
+			// For some reason this does the exact opposite at times... That's why it's messed up.
 		}
 			
 		double ourYValue = m_tangoRotation.eulerAngles.y;
 		double getToYValue = ConvertIndexToYRotationValue (indexWithMinimumDistance);
 
 		directionHelperText.text = "Get to y value: " + getToYValue;
-
-		double roundedOurYValue = Math.Round (ourYValue, 1);
 
 		GetClosestDirection (ourYValue, getToYValue);
 	}
@@ -343,64 +344,46 @@ public class TangoDeltaPoseController : MonoBehaviour, ITangoPose
 		{
 			case 0:
 				return 0;
+				break;
 			case 1:
 				return 30;
+				break;
 			case 2:
 				return 60;
+				break;
 			case 3:
 				return 90;
+				break;
 			case 4:
 				return 120;
+				break;
 			case 5:
 				return 150;
+				break;
 			case 6:
 				return 180;
+				break;
 			case 7:
 				return 210;
+				break;
 			case 8:
 				return 240;
+				break;
 			case 9:
 				return 270;
+				break;
 			case 10:
 				return 300;
+				break;
 			case 11:
 				return 330;
+				break;
 			default:
-				return 0;
+				return 100000000;
+				break;
 		}
 	}
-
-	private int getNumStepsRight(double[] arr, double myYValue, double goYValue) 
-	{
-		int myIndex = 100;
-		int goToIndex = 100;
-
-		for (int i = 0; i < arr.Length; i++) 
-		{
-			if (myYValue == arr [i]) 
-			{
-				myIndex = i;
-			}
-
-			if (goYValue == arr [i]) 
-			{
-				goToIndex = i;
-			}
-		}
-
-		int numStepsToTheRight = 0;
-
-
-		if (myIndex <= goToIndex) {
-			numStepsToTheRight = goToIndex - myIndex;
-		} 
-		else {
-			numStepsToTheRight = (19 - myIndex) + goToIndex;
-		}
-		positionText.text = "myIndex: " + myIndex.ToString() + " goToIndex: " + goToIndex.ToString() + " stepsToRight: " + numStepsToTheRight.ToString();
-		return numStepsToTheRight;
-	}
-				
+					
 	public void GetClosestDirection(double OurYRotation, double GoYRotation) 
 	{
 		if (OurYRotation < GoYRotation + 15 && OurYRotation > GoYRotation - 15) {
